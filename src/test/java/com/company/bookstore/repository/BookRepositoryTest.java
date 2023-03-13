@@ -80,48 +80,51 @@ public class BookRepositoryTest {
 
 
     }
-    public void shouldUpdateBook(){
-        public void shouldAddBook(){
+    public void shouldUpdateBook() {
 
-            Author author = new Author();
-            author.setFirstName("Jonathan");
-            author.setLastName("Sanchez");
-            author.setStreet("123 Lane");
-            author.setCity("Miami");
-            author.setState("Florida");
-            author.setPostal_code("12345");
-            author.setPhone("111-222-3456");
-            author.setEmail("jon@gmail.com");
+        Author author = new Author();
+        author.setFirstName("Jonathan");
+        author.setLastName("Sanchez");
+        author.setStreet("123 Lane");
+        author.setCity("Miami");
+        author.setState("Florida");
+        author.setPostal_code("12345");
+        author.setPhone("111-222-3456");
+        author.setEmail("jon@gmail.com");
 
-            author = authorRepository.save(author);
+        author = authorRepository.save(author);
 
-            Publisher publisher = new Publisher();
-            publisher.setCity("Detroit");
-            publisher.setState("Michigan");
-            publisher.setPhone("800-345-1345");
-            publisher.setPostal_code("30456");
-            publisher.setEmail("publisher@penguin.com");
-            publisher.setStreet("312 Main Road");
-            publisher = publisherRepository.save(publisher);
+        Publisher publisher = new Publisher();
+        publisher.setCity("Detroit");
+        publisher.setState("Michigan");
+        publisher.setPhone("800-345-1345");
+        publisher.setPostal_code("30456");
+        publisher.setEmail("publisher@penguin.com");
+        publisher.setStreet("312 Main Road");
+        publisher = publisherRepository.save(publisher);
 
-            Book book = new Book();
-            book.setIsbn("0-1024-1680-X");
-            book.setPrice(BigDecimal.valueOf(30));
-            book.setTitle("Moby Dick");
-            book.setPublishDate("Jan-01-1899");
-            book.setAuthorId(author.getId());
-            book.setPublisherId(publisher.getId());
 
-            book = bookRepository.save(book);
 
-            book.setPublishDate("Feb-02-1900");
+        Book book = new Book();
+        book.setIsbn("0-1024-1680-X");
+        book.setPrice(BigDecimal.valueOf(30));
+        book.setTitle("Moby Dick");
+        book.setPublishDate("Jan-01-1899");
+        book.setAuthorId(author.getId());
+        book.setPublisherId(publisher.getId());
 
-            book = bookRepository.save(book);
+        book = bookRepository.save(book);
 
-            Optional<Book> book1 = bookRepository.findById(book.getId());
-            assertEquals(book1.get(),book);
+        book.setPublishDate("Feb-02-1900");
+
+        book = bookRepository.save(book);
+
+        Optional<Book> book1 = bookRepository.findById(book.getId());
+        assertEquals(book1.get(),book);
     }
-    public void shoulDeleteBook(){            Author author = new Author();
+
+    public void shoulDeleteBook(){
+            Author author = new Author();
             author.setFirstName("Jonathan");
             author.setLastName("Sanchez");
             author.setStreet("123 Lane");
@@ -244,4 +247,4 @@ public class BookRepositoryTest {
 
         }
     }
-}
+

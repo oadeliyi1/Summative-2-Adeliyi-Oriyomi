@@ -1,6 +1,7 @@
 package com.company.bookstore.repository;
 
 import com.company.bookstore.model.Author;
+import com.company.bookstore.model.Publisher;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,8 @@ public class AuthorRepositoryTest {
 
     @Autowired
     AuthorRepository authorRepository;
+    PublisherRepository publisherRepository;
+
 
     @Before
     public void setUp() throws Exception {
@@ -29,6 +32,17 @@ public class AuthorRepositoryTest {
     @Test
     public void shouldDeleteAuthor() {
 //        Arrange
+
+        Publisher publisher = new Publisher();
+        publisher.setCity("Detroit");
+        publisher.setState("Michigan");
+        publisher.setPhone("800-345-1345");
+        publisher.setPostal_code("30456");
+        publisher.setEmail("publisher@penguin.com");
+        publisher.setStreet("312 Main Road");
+        publisher = publisherRepository.save(publisher);
+
+        publisher = publisherRepository.save(publisher);
 
         Author author = new Author();
         author.setFirstName("Jonathan");
@@ -56,6 +70,17 @@ public class AuthorRepositoryTest {
     @Test
     public void shouldUpdateAuthor() {
 
+        Publisher publisher = new Publisher();
+        publisher.setCity("Detroit");
+        publisher.setState("Michigan");
+        publisher.setPhone("800-345-1345");
+        publisher.setPostal_code("30456");
+        publisher.setEmail("publisher@penguin.com");
+        publisher.setStreet("312 Main Road");
+        publisher = publisherRepository.save(publisher);
+
+        publisher = publisherRepository.save(publisher);
+
         Author author = new Author();
         author.setFirstName("Jonathan");
         author.setLastName("Sanchez");
@@ -77,6 +102,8 @@ public class AuthorRepositoryTest {
 
     @Test
     public void shouldGetAllAuthors() {
+
+        //create publisher for each
         Author author = new Author();
         author.setFirstName("Jonathan");
         author.setLastName("Sanchez");
@@ -90,14 +117,14 @@ public class AuthorRepositoryTest {
         author = authorRepository.save(author);
 
         Author author1 = new Author();
-        author.setFirstName("Dalonte");
-        author.setLastName("Griffin");
-        author.setStreet("321 Lane");
-        author.setCity("Ney York");
-        author.setState("New York");
-        author.setPostal_code("54321");
-        author.setPhone("111-222-3456");
-        author.setEmail("dalonte@gmail.com");
+        author1.setFirstName("Dalonte");
+        author1.setLastName("Griffin");
+        author1.setStreet("321 Lane");
+        author1.setCity("Ney York");
+        author1.setState("New York");
+        author1.setPostal_code("54321");
+        author1.setPhone("111-222-3456");
+        author1.setEmail("dalonte@gmail.com");
 
 
         author1 = authorRepository.save(author1);
@@ -109,6 +136,19 @@ public class AuthorRepositoryTest {
 
     @Test
     public void shouldAddAuthor() {
+
+
+        Publisher publisher = new Publisher();
+        publisher.setCity("Detroit");
+        publisher.setState("Michigan");
+        publisher.setPhone("800-345-1345");
+        publisher.setPostal_code("30456");
+        publisher.setEmail("publisher@penguin.com");
+        publisher.setStreet("312 Main Road");
+        publisher = publisherRepository.save(publisher);
+
+        publisher = publisherRepository.save(publisher);
+
         Author author = new Author();
         author.setFirstName("Jonathan");
         author.setLastName("Sanchez");
@@ -128,6 +168,19 @@ public class AuthorRepositoryTest {
 
     @Test
     public void shouldFindAuthorById() {
+
+
+        Publisher publisher = new Publisher();
+        publisher.setCity("Detroit");
+        publisher.setState("Michigan");
+        publisher.setPhone("800-345-1345");
+        publisher.setPostal_code("30456");
+        publisher.setEmail("publisher@penguin.com");
+        publisher.setStreet("312 Main Road");
+        publisher = publisherRepository.save(publisher);
+
+        publisher = publisherRepository.save(publisher);
+
         Author author = new Author();
         author.setFirstName("Jonathan");
         author.setLastName("Sanchez");
