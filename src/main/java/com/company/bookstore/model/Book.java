@@ -36,7 +36,7 @@ public class Book {
         this.authorId = authorId;
     }
 
-
+//add author and publisher to hash equal
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

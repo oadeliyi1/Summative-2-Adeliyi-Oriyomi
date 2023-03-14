@@ -1,5 +1,5 @@
 type Book {
-    id: int
+    id: Int
     isbn: String!
     publishDate: String!
     publisher: Publisher
@@ -7,7 +7,7 @@ type Book {
     price: Float!
 
 }
-type Publisher{
+type Publisher {
     name: String!
     street: String!
     city: String!
@@ -15,12 +15,13 @@ type Publisher{
     postal_code: String!
     phone: String!
     email: String!
-    book: [Books]
+    books: [Book]!
 
     }
 
+
   type Author {
-     id: int
+     id: Int!
      firstName: String!
      lastName: String!
      street: String!
@@ -34,28 +35,41 @@ type Publisher{
 
 
 type Query {
-{
-  publisherById(id:1){
-    books {
-      author {
-        firstName
-      }
-    }
-  }
+#{
+    #  publisherById(id:1){
+    #    books {
+    #      author {
+    #        firstName
+    #      }
+    #    }
+    #  }
+   publisherByID(id:ID): Publisher
+    authorByID(id:ID): Author
+    bookByID(id:ID): Book
+
+
+    #{
+#  publisherById(id:1){
+#    books {
+#      author {
+#        firstName
+#      }
+#    }
+#  }
 }
 
 # If there are any problems with query, try changing lowercase types to upperCase
 
-   findAuthorbyId(id:Int): {
-   author {
-    books
-    }
-   }
-
-# Has to return publishers and authors of the book
-   findBookbyId(id:Int): Book
-
-}
+#   findAuthorbyId(id:Int): {
+#   author {
+#    books
+#    }
+#   }
+#
+## Has to return publishers and authors of the book
+#   findBookbyId(id:Int): Book
+#
+#}
 
 
 

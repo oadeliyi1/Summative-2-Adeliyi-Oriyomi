@@ -161,6 +161,9 @@ public class BookRepositoryTest {
             Optional<Book> fromRepo = bookRepository.findById(book.getId());
             assertFalse(fromRepo.isPresent());
         }
+
+        //Shouldfindbook by author id
+
     public void shouldFindBookbyID(){
         Author author = new Author();
             author.setFirstName("Jonathan");
